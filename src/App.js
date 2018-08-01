@@ -3,7 +3,10 @@ import './App.css';
 
 const string = '89 30 25 32 72 70 51 42 25 24 53 55 78 50 13 40 48 32 26 2 14 33 45 72 56 44 21 88 27 68 15 62 93 98 73 28 16 46 87 28 65 38 67 16 85 63 23 69 64 91 9 70 81 27 97 82 6 88 3 7 46 13 11 64 76 31 26 38 28 13 17 69 90 1 6 7 64 43 9 73 80 98 46 27 22 87 49 83 6 39 42 51 54 84 34 53 78 40 14 5';
 const dataset = string.split(' ');
-const sortedData = string.split(' ').sort((a,b) => a - b );
+const sortedData = string.split(' ').sort((a,b) => a - b);
+const flamingo = sortedData.map(each => Number(each));
+
+console.log(flamingo);
 
 class App extends Component {
   constructor(props) {
@@ -16,13 +19,13 @@ class App extends Component {
 
   mainSearch(e){
     e.preventDefault();
-    this.linearSearch(this.input.value);
-    this.binarySearch(sortedData, this.input.value, 0, sortedData.length);
+    this.linearSearch(Number(this.input.value));
+    this.binarySearch(flamingo, Number(this.input.value));
   }
 
   linearSearch(input) {
     for (let i = 0; i < dataset.length; i++) {
-      if (dataset[i] === input) {
+      if (dataset[i] == input) {
         this.setState({
           linCount: i + 1
         })
@@ -37,8 +40,10 @@ class App extends Component {
 
     console.log('start: ' + start, 'end: ' + end)
     if (start > end) {
-      console.log('binary number not found', 'start: ' + start, 'end: ' + end)
-      return -1;
+      console.log('binary number not found', 'start: ' + start, 'end: ' + end);
+      this.setState({
+        binCount: count
+      });
     }
 
     // find midpoint
@@ -49,8 +54,7 @@ class App extends Component {
     if (middle === value)  {
      this.setState({
       binCount: count
-     })
-    
+     });
     }
 
     // if the middle element is less than target, the target lies on the right, so eliminate left
@@ -64,7 +68,6 @@ class App extends Component {
     }
 
   };
-
 
   render() {
     // input box to search for a number
