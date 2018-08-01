@@ -33,6 +33,7 @@ class App extends Component {
       } 
     }
     console.log('linear number not found');
+    return;
   }
 
   binarySearch(array, value, start=0, end=array.length-1, count=1) {
@@ -44,6 +45,7 @@ class App extends Component {
       this.setState({
         binCount: count
       });
+      return;
     }
 
     // find midpoint
@@ -55,6 +57,7 @@ class App extends Component {
      this.setState({
       binCount: count
      });
+     return;
     }
 
     // if the middle element is less than target, the target lies on the right, so eliminate left
