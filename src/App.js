@@ -50,6 +50,7 @@ class App extends Component {
      this.setState({
       binCount: count
      })
+    
     }
 
     // if the middle element is less than target, the target lies on the right, so eliminate left
