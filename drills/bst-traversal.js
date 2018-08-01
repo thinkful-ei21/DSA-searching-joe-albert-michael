@@ -46,7 +46,6 @@ function getPreOrder(tree, arr=[]) {
 
 // create post-order
 function getPostOrder(tree, arr=[]) {
-  
   if (tree) {
     getPostOrder(tree.left, arr);
     getPostOrder(tree.right, arr);
@@ -55,6 +54,6 @@ function getPostOrder(tree, arr=[]) {
   return arr;
 }
 
-console.log(getInOrder(bst));
-console.log(getPreOrder(bst));
-console.log(getPostOrder(bst));
+// console.log(getInOrder(bst));
+// console.log(getPreOrder(bst));
+// console.log(getPostOrder(bst));
