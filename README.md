@@ -1,4 +1,5 @@
-    ___  
+This was once a flamingo.
+___  
   ,'   `.  
  /_. _,. \  
 ( /('   \ :  
